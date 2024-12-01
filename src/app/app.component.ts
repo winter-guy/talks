@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
-import { HlmAccordionDirective, HlmAccordionItemDirective, HlmAccordionTriggerDirective, HlmAccordionContentComponent, HlmAccordionIconDirective } from '@spartan-ng/ui-accordion-helm';
-import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
+import { LayoutComponent } from "./components/layout/layout.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'root',
   standalone: true,
   imports: [
-    HlmAccordionDirective,
-		HlmAccordionItemDirective,
-		HlmAccordionTriggerDirective,
-		HlmAccordionContentComponent,
-		HlmAccordionIconDirective,
-		HlmIconComponent,
-  ],
-  templateUrl: './app.component.html',
+    LayoutComponent,
+    RouterOutlet
+],
+  template: `<layout><router-outlet></router-outlet></layout>`,
   styles: [],
 })
 export class AppComponent {

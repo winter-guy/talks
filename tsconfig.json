@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -21,6 +22,8 @@
       "dom"
     ],
     "paths": {
+      "@component/*": ["src/app/components/*"],
+      "@pages/*": ["src/app/pages/*"],
       "@spartan-ng/ui-accordion-helm": [
         "./libs/ui/ui-accordion-helm/src/index.ts"
       ],
