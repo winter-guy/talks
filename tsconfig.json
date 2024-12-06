@@ -134,6 +134,9 @@
       ],
       "@consent": [
         "./dist/consent"
+      ],
+      "@theme": [
+        "./dist/theme"
       ]
     }
   },

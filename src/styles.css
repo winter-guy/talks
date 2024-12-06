@@ -9,8 +9,6 @@
 @include mat.core();
 
 
-
-
 /* You can add global styles to this file, and also import other style files */
 
 @tailwind base;
@@ -68,3 +66,19 @@
 }
 html, body { height: 100%; scroll-behavior: smooth; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+html,
+body {
+    @apply h-full dark:selection:bg-indigo-400 selection:bg-black/10 dark:selection:text-slate-50;
+}
+
+body {
+    @apply transition duration-500 ease-out bg-white;
+    @apply text-slate-900;
+}
+
+body.dark {
+    @apply bg-[#000000] transition duration-500 ease-in-out;
+    @apply text-zinc-50;
+}

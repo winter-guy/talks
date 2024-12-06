@@ -4,8 +4,8 @@ import { Injectable, OnDestroy, inject } from '@angular/core';
 import { BehaviorSubject, Subject, fromEventPattern } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AppTheme } from './theme.config';
-import { DEFAULT_BASE_THEME } from './constants';
-import { storage } from 'src/app/utils';
+import { DEFAULT_BASE_THEME } from './DEFAULT_BASE_THEME';
+import { storage } from '../storage';
 
 @Injectable({
     providedIn: 'root',

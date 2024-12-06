@@ -1,4 +1,4 @@
-import { AppTheme } from "src/app/services/theme";
+import { AppTheme } from "../lib";
 
 
 type StorageObjectMap = {

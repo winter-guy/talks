@@ -3,16 +3,16 @@
     <footer class="mx-auto">
       <div class="flex flex-col items-center justify-center w-full max-w-2xl space-y-5 md:items-start">
         <nav
-          class="flex flex-wrap items-center justify-center space-x-4 text-xs font-medium text-slate-500 dark:text-gray-300 sm:flex-row">
+          class="flex flex-wrap items-center justify-center font-sans space-x-4 font-normal text-md sm:flex-row hover:[&>a]:text-red-500 hover:[&>a]:underline decoration-gray-300 underline-offset-4">
           <a routerLink="/behind-the-scene/developer" [routerLinkActive]="'underline underline-offset-4 decoration-orange-500'"
             class="hover:text-black dark:hover:text-white">Behind the scene</a>
           <a routerLink="/lnco/lodging" [routerLinkActive]="'underline underline-offset-4 decoration-orange-500'"
-            class="hover:text-black dark:hover:text-white">[ corner escape ]</a>
-          <!-- <a href="#" class="hover:text-black dark:hover:text-white">Privacy</a>
-                <a href="#" class="hover:text-black dark:hover:text-white">Terms</a> -->
+            class="hover:text-black dark:hover:text-white">corner escape</a>
+          <a href="#" class="hover:text-black dark:hover:text-white">Privacy</a>
+                <a href="#" class="hover:text-black dark:hover:text-white">Terms</a>
           <a *ngIf="false" tabindex="" class="hover:text-black dark:hover:text-white flex items-center gap-1.5">Server
             status
-            <span class="inline-flex h-1.5 w-1.5 rounded-full opacity-75"
+            <span class="inline-flex h-1.5 w-1.5 rounded-full opacity-75 "
               [ngClass]="this.state === 0 ? 'bg-green-500' : 'bg-red-500'">
             </span>
           </a>
@@ -20,8 +20,8 @@
             class="hover:text-black dark:hover:text-white">journal</a>
 
         </nav>
-        <p class="mb-4 text-xs leading-5 text-center text-slate-500 dark:text-gray-300 md:text-left">
-          l&co collects information about you when
+        <p class="mb-4 text-sm leading-5 text-center md:text-left text-muted-foreground">
+          <span class="text-red-600">Corner /// escape</span> collects information about you when
           you use our Website to access our services, and other online products
           and services (collectively, the “Services”) and through other interactions and communications you have with
           us.
@@ -32,17 +32,18 @@
 
   </div>
   <nav
-    class="flex flex-wrap items-center justify-between w-full mt-6 space-x-4 text-xs font-medium text-slate-500 dark:text-gray-300 sm:flex-row">
+    class="flex flex-wrap items-center justify-between w-full space-x-4 text-xs font-normal sm:flex-row">
    
     <div class="flex gap-4">
       <!-- <a [routerLinkActive]="'underline underline-offset-4'"
       class="flex gap-2 hover:text-black dark:hover:text-white">Signed in as {{(auth.user$ | async)?.name}}
     </a> -->
-    <a tabindex="" class="hover:text-black dark:hover:text-white flex items-center gap-1.5">Server
-      status
-      <span class="inline-flex h-1.5 w-1.5 rounded-full opacity-75"
+    <a tabindex="" class="hover:text-black dark:hover:text-white flex items-center gap-1.5">
+      <span class="inline-flex w-1 h-full rounded-full opacity-75"
         [ngClass]="this.state === 0 ? 'bg-green-500' : 'bg-red-500'">
       </span>
+
+      <span>server status</span>
     </a>
 
       

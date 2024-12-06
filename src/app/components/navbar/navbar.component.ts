@@ -6,9 +6,9 @@ import { ConsentComponent } from '@component/consent/consent.component';
 import { FooterComponent } from '@component/footer/footer.component';
 
 import { Subject, Observable, takeUntil } from 'rxjs';
-import { AppTheme, ThemeService } from 'src/app/services/theme';
 
 import { needConfirmation } from '@consent';
+import { ThemeService, AppTheme } from '@theme';
 
 @Component({
   selector: 'navbar',

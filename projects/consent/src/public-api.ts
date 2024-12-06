@@ -2,8 +2,6 @@
  * Public API Surface of consent
  */
 
-export * from './exports/consent.service';
-// export * from './lib/consent.component';
-
-export * from './exports/dialog.directive';
-export * from './exports/consent';
+export * from './lib/consent.service';
+export * from './lib/dialog.directive';
+export * from './lib/consent';
