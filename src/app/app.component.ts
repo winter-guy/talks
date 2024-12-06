@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
     LayoutComponent,
     RouterOutlet
 ],
-  template: `<layout><router-outlet></router-outlet></layout>`,
+  template: `<layout class="dark:bg-black"><router-outlet></router-outlet></layout>`,
   styles: [],
 })
 export class AppComponent {

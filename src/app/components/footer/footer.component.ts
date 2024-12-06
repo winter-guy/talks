@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { StatusComponent } from './status/status';
 import { PACKAGE_JSON, providePackageJson } from 'src/app/lib/providers';
-import { needConfirmation } from 'src/app/directives/dialog.directive';
+import { needConfirmation } from '@consent';
+import { ConsentComponent } from '@component/consent/consent.component';
 // import { HealthService } from '@lib/services/health/health.service';
 // import { AuthService } from '@auth0/auth0-angular';
 // import { needConfirmation } from '@lib/content/dialog.directive';
@@ -44,13 +45,13 @@ export class FooterComponent implements OnInit {
         });
     }
 
-    @needConfirmation({
+    @needConfirmation<ConsentComponent>({
         message: `Are you sure you want to log out?`,
         description: `Logging out will terminate your current session and require you to 
-                        sign in again to access your account and modify artifacts. `,
+                        sign in again to access your account and modify artifacts.`,
         label: 'sign out',
         disableCloseBtn: true,
-    })
+      }, ConsentComponent)
     public logout(): void {
         // this.auth.logout({ logoutParams: { returnTo: this._doc.location.origin } });
     }

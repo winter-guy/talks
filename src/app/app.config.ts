@@ -2,7 +2,7 @@ import { ApplicationConfig, ENVIRONMENT_INITIALIZER, inject, provideZoneChangeDe
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogConsentService } from './services/dialog-consent.service';
+import { DialogConsentService } from '@consent';
 
 export function initializeDialogService() {
   return (): void => {

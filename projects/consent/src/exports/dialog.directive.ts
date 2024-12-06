@@ -1,6 +1,7 @@
-import { ConsentComponent } from '@component/consent/consent.component';
-import { ConsentDialogData } from '../interfaces/consent';
-import { DialogConsentService } from '../services/dialog-consent.service';
+import { ComponentType } from "@angular/cdk/portal";
+import { DialogConsentService } from "./consent.service";
+import { ConsentDialogData } from "./consent";
+
 
 const defaultConfirmData = {
     message: 'Confirmation',
@@ -8,7 +9,7 @@ const defaultConfirmData = {
     label: 'confirm'
 };
 
-export function needConfirmation(confirmData: ConsentDialogData = defaultConfirmData) {
+export function needConfirmation<T>(confirmData: ConsentDialogData = defaultConfirmData, component: ComponentType<T>) {
     return function(target: any, propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor {
         target;
         propertyKey;
@@ -18,7 +19,7 @@ export function needConfirmation(confirmData: ConsentDialogData = defaultConfirm
         // Annotate the type of 'this' explicitly
         descriptor.value = async function(this: any, ...args: any[]): Promise<void> {
             const isValidated = await DialogConsentService.getInstance()
-                ?.openDialog(confirmData, ConsentComponent)
+                ?.openDialog(confirmData, component)
                 .toPromise();
 
             if (isValidated) {

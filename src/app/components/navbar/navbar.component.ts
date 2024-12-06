@@ -2,10 +2,13 @@ import { CdkMenuModule } from '@angular/cdk/menu';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, ComponentFactoryResolver, Inject, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { ConsentComponent } from '@component/consent/consent.component';
 import { FooterComponent } from '@component/footer/footer.component';
+
 import { Subject, Observable, takeUntil } from 'rxjs';
-import { needConfirmation } from 'src/app/directives/dialog.directive';
 import { AppTheme, ThemeService } from 'src/app/services/theme';
+
+import { needConfirmation } from '@consent';
 
 @Component({
   selector: 'navbar',
@@ -74,13 +77,13 @@ export class NavbarComponent {
       // this.auth.loginWithRedirect();
   }
 
-  @needConfirmation({
-      message: `Are you sure you want to log out?`,
-      description: `Logging out will terminate your current session and require you to 
-                      sign in again to access your account and modify artifacts. `,
-      label: 'sign out',
-      disableCloseBtn: true,
-  })
+  @needConfirmation<ConsentComponent>({
+    message: `Are you sure you want to log out?`,
+    description: `Logging out will terminate your current session and require you to 
+                    sign in again to access your account and modify artifacts. `,
+    label: 'sign out',
+    disableCloseBtn: true,
+  }, ConsentComponent)
   public logout(): void {
       // this.auth.logout({ logoutParams: { returnTo: this._doc.location.origin } });
   }

@@ -131,6 +131,9 @@
       ],
       "@spartan-ng/ui-typography-helm": [
         "./libs/ui/ui-typography-helm/src/index.ts"
+      ],
+      "@consent": [
+        "./dist/consent"
       ]
     }
   },
