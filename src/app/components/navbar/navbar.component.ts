@@ -3,17 +3,18 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, ComponentFactoryResolver, Inject, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ConsentComponent } from '@component/consent/consent.component';
-import { FooterComponent } from '@component/footer/footer.component';
+import { CorenavComponent } from '@component/corenav/corenav.component';
 
 import { Subject, Observable, takeUntil } from 'rxjs';
 
 import { needConfirmation } from '@consent';
 import { ThemeService, AppTheme } from '@theme';
+import { HlmButtonModule } from '@spartan-ng/ui-button-helm';
 
 @Component({
   selector: 'navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule, CdkMenuModule,],
+  imports: [CommonModule, RouterModule, CdkMenuModule, HlmButtonModule],
   templateUrl: './navbar.component.html',
   styles: ``
 })
@@ -49,7 +50,7 @@ export class NavbarComponent {
           this.dynamicComponentRef = null;
       } else {
           // Create an instance of the dynamic component
-          const componentFactory = this._componentFactoryResolver.resolveComponentFactory(FooterComponent);
+          const componentFactory = this._componentFactoryResolver.resolveComponentFactory(CorenavComponent);
           this.dynamicComponentRef = this.dynamicComponentContainer.createComponent(componentFactory);
 
           // You can pass inputs to the component

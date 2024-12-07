@@ -14,14 +14,14 @@ import { ConsentComponent } from '@component/consent/consent.component';
 // import { needConfirmation } from '@lib/content/dialog.directive';
 
 @Component({
-    selector: 'app-footer',
+    selector: 'corenav',
     standalone: true,
     imports: [CommonModule, RouterModule, MatDialogModule],
     providers: [providePackageJson()],
-    templateUrl: './footer.component.html',
+    templateUrl: './corenav.component.html',
     // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent implements OnInit {
+export class CorenavComponent implements OnInit {
     readonly packageJson = inject(PACKAGE_JSON);
     // readonly health = inject(HttpService);
     readonly matDialog = inject(MatDialog);
