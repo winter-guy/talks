@@ -1,6 +1,6 @@
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, ComponentFactoryResolver, Inject, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ElementRef, Inject, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ConsentComponent } from '@component/consent/consent.component';
 import { CorenavComponent } from '@component/corenav/corenav.component';
@@ -88,4 +88,39 @@ export class NavbarComponent {
   public logout(): void {
       // this.auth.logout({ logoutParams: { returnTo: this._doc.location.origin } });
   }
+
+  @ViewChild('imageContainer') imageContainer!: ElementRef;
+
+    addCSS() {
+        if (this.imageContainer) {
+            const parentDiv = this.imageContainer.nativeElement as HTMLDivElement;
+            parentDiv.classList.add('-space-x-1');
+            parentDiv.classList.remove('space-x-2');
+
+            // const images = parentDiv.getElementsByTagName('img') as [HTMLImageElement];
+
+            // Array.from(images).forEach((img: HTMLImageElement) => {
+            //     img.classList.add('image-style');  // Add the class to each image
+            // });
+        }
+    }
+
+
+    removeCSS() {
+        if (this.imageContainer) {
+            const parentDiv = this.imageContainer.nativeElement as HTMLDivElement;
+            parentDiv.classList.remove('-space-x-1');
+            parentDiv.classList.add('space-x-2');
+        }
+    }
+
+    checkIfItHasClass() {
+        const parentDiv = this.imageContainer.nativeElement as HTMLDivElement;
+        if(parentDiv.classList.contains('-space-x-1')) {
+            this.removeCSS();
+            return;
+        }
+
+        this.addCSS();
+    }
 }
