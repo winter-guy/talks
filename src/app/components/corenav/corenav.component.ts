@@ -1,5 +1,5 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit, inject } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 
@@ -21,7 +21,7 @@ import { ConsentComponent } from '@component/consent/consent.component';
     templateUrl: './corenav.component.html',
     // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CorenavComponent implements OnInit {
+export class CorenavComponent implements OnInit, OnDestroy {
     readonly packageJson = inject(PACKAGE_JSON);
     // readonly health = inject(HttpService);
     readonly matDialog = inject(MatDialog);
@@ -56,4 +56,9 @@ export class CorenavComponent implements OnInit {
         // this.auth.logout({ logoutParams: { returnTo: this._doc.location.origin } });
     }
     //create it through behaviour subject
+
+
+    ngOnDestroy(): void {
+        console.log('desctructed....')
+    }
 }
